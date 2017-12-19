@@ -1,0 +1,42 @@
+<% if @restaurant.errors.any? %>
+<h2>We have some errors here !</h2>
+<ul>
+  <% @restaurant.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for  [:admin, @restaurant] do |f| %>
+<%= f.label :category, "category" %><br>
+<%= f.collection_select :category_id, Category.all, :id, :name, {}, {} %><br>
+<br>
+
+<%= f.label :name, "Name" %><br>
+<%= f.text_field :name %><br>
+<br>
+  <%= f.label :tel, "Tel" %><br>
+  <%= f.text_field :tel %><br>
+<br>
+  <%= f.label :address, "Address" %><br>
+  <%= f.text_field :address %><br>
+<br>
+  <%= f.label :opening_hours, "Opening Hours" %><br>
+  <%= f.text_field :opening_hours %><br>
+<br>
+  <%= f.label :description, "Description" %><br>
+  <%= f.text_area :description %><br>
+
+<br>
+  <%= f.label :image, "Photo" %>
+  <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
+  <%= f.file_field :image %>
+<br>
+<%= f.submit %>
+<br>
+<br>
+
+
+<%= link_to 'Back to index', admin_restaurants_path %>
+
+<% end %>

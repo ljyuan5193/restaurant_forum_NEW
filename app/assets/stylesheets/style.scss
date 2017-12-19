@@ -1,0 +1,39 @@
+.restaurant-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.restaurant-item img {
+  max-height: 180px;
+  width: 100%;
+}
+
+.restaurant-item .caption {
+  padding: 10px;
+}
+
+.nav-pills-center {
+   text-align: center;
+   display: table;
+   margin: 0 auto;
+ }
+
+ .divbk {
+   width:1600px;
+   height:1280px;
+   background-image: url( "http://img.lanrentuku.com/img/allimg/1611/14799523653608.jpg"  );
+   background-position:0px 0px;
+   background-repeat:no-repeat;
+   background-size: cover;
+   margin: -20px auto;
+
+  }
+
+ .divwh {
+    width:400px;
+    height:400px;
+    margin: -1280px 0px;
+
+  }
