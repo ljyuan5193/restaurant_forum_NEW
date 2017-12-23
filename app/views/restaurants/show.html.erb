@@ -35,10 +35,10 @@
         <em><%= comment.created_at %> </em>
       </p>
     </div>
-    <hr>
     <% if current_user.admin? %>
   <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
 <% end %>
+<hr>
     <% end %>
 
 <div class="container">

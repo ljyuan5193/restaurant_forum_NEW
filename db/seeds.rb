@@ -27,5 +27,5 @@ puts "Category created!"
 
 # Default admin
 
-User.create(email: "iiiii@is", password: "123456", role: "admin")
+User.create(email: "iiiii@is", password: "123456", role: "admin", name: "root", intro: "HI，大家好")
 puts "Default admin created!"
