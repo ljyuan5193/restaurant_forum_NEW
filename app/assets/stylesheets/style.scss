@@ -21,9 +21,9 @@
  }
 
  .divbk {
-   width:1600px;
+   width:1289px;
    height:1280px;
-   background-image: url( "http://img.lanrentuku.com/img/allimg/1611/14799523653608.jpg"  );
+   background-image: url("http://img.lanrentuku.com/img/allimg/1612/14822880491717.jpg");
    background-position:0px 0px;
    background-repeat:no-repeat;
    background-size: cover;
@@ -37,3 +37,30 @@
     margin: -1280px 0px;
 
   }
+
+  .my-restaurant {
+   display: inline-block;
+   text-align: center;
+   padding: 7px 7px 0 7px;
+ }
+
+ .my-restaurant > div {
+   height: 60px;
+ }
+
+ .my-restaurant img {
+   max-height: 100%;
+ }
+
+ .panel a:hover .my-restaurant {
+   background-color: #FFDC35;
+ }
+
+ .alingw{
+   text-align:center
+ }
+
+ .user_img{
+   width:400px;
+   height:200px;
+ }
