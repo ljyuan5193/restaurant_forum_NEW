@@ -1,7 +1,7 @@
 namespace :dev do
   task fake_restaurant: :environment do
     Restaurant.destroy_all
-    500.times do |i|
+    5.times do |i|
       Restaurant.create!(name: FFaker::Name.first_name,
         opening_hours: FFaker::Time.datetime,
         tel: FFaker::PhoneNumber.short_phone_number,
@@ -16,7 +16,7 @@ end
 
   task fake_user: :environment do
     User.destroy_all
-    20.times do |i|
+    2.times do |i|
       user_name = FFaker::Name.first_name
       User.create!(
         name: FFaker::Name.first_name,
