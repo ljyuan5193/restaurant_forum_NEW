@@ -44,4 +44,9 @@ def like
  like.destroy_all
  redirect_back(fallback_location: root_path)
 end
+
+def ranking
+ @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
+end
+
 end
