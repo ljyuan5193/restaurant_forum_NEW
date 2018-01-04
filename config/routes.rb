@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :categories, only: :show
+  resources :users, only: [:index, :show, :edit, :update]
+  resources :followships, only: [:create, :destroy]
   root "restaurants#index"
 
 
@@ -26,5 +28,5 @@ Rails.application.routes.draw do
     post :unlike
   end
 end
-resources :users, only: [:show, :edit, :update]
+
 end
