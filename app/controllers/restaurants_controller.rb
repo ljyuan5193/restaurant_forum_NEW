@@ -22,6 +22,8 @@ class RestaurantsController < ApplicationController
  def favorite
     @restaurant = Restaurant.find(params[:id])
     @restaurant.favorites.create!(user: current_user)
+    @restaurant.favorites_count += 1
+    @restaurant.save!
     redirect_back(fallback_location: root_path)  # 導回上一頁
   end
 
@@ -29,6 +31,8 @@ class RestaurantsController < ApplicationController
   @restaurant = Restaurant.find(params[:id])
   favorite = Favorite.where(restaurant: @restaurant, user: current_user)
   favorite.destroy_all
+  @restaurant.favorites_count -= 1
+  @restaurant.save!
   redirect_back(fallback_location: root_path)
 end
 
@@ -46,7 +50,7 @@ def like
 end
 
 def ranking
- @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
+@recent_favorites_counts = Restaurant.order(favorites_count: :desc).limit(10)
 end
 
 end

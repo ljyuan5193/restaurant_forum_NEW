@@ -1,4 +1,5 @@
-<div class="container">
+<h1>TOP 10 人氣餐廳</h1><br>
+ <div class="container">
    <div class="row">
        <ul class="nav nav-tabs">
          <li role="presentation">
@@ -12,20 +13,23 @@
          </li>
        </ul>
    </div>
-</div>
+ </div>
 <br>
 
-
-       <h1>TOP 10 人氣餐廳</h1><br>
-
-<br>
-             <% @recent_restaurants.each do |restaurant| %>
-       <%= image_tag("http://lorempixel.com/300/300/food/" ) %>
-                 <h4>
-                   <%= link_to restaurant.name, restaurant_path(restaurant) %>
-                   <small><%= restaurant.category.name %></small>
-                 </h4>
-                 <p><%= truncate(restaurant.description, length: 80) %></p>
-                 <hr>
-
-             <% end %>
+<% @recent_favorites_counts.each do |restaurant| %>
+   <% fake_value =restaurant.id - Restaurant.first.id + 1 %>
+    <%  if fake_value > 9 %>
+    <% fake_value%=9 %>
+   <% end %>
+     <div class="rankimguse">
+      <%= image_tag "http://lorempixel.com/100/100/food/" + fake_value.to_s %>
+     </div>
+      <p class="text-muted">
+        <h4><%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <small><%= restaurant.category.name %></small>
+        收藏數：<%= restaurant.favorites_count %></h4>
+        <%= truncate(restaurant.description, length: 80) %>
+      </p>
+   <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+  <hr>
+<% end %>
