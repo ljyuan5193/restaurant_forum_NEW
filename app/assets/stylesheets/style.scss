@@ -72,8 +72,11 @@
    float:left
  }
 
-  .ccxx{
-    display: inline;
-    width:1200px;
-    height:1000px;
-  }
+ .user-item {
+   margin-bottom: 15px;
+ }
+
+ .user-item img {
+   width: 128px;
+   height: 128px;
+ }
