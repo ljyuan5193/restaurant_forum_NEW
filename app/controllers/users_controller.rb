@@ -4,16 +4,21 @@ def index
 @users = User.all
 end
 
- def show
+def show
 @commented_restaurants  =  @user.restaurants.uniq
+@favorited_restaurants = @user.favorited_restaurants
+@followings = @user.followings
+@followers = @user.followers
 end
-def edit
 
+def edit
 end
+
 def update
   @user.update(user_params)
   redirect_to user_path(@user)
 end
+
 private
 
 def set_user

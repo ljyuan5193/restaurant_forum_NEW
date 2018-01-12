@@ -24,6 +24,7 @@
 <br>
 
 <% @users.each do |user| %>
+<% if user != current_user %>
   <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
     <%= link_to user_path(user) do %>
       <%= image_tag("http://via.placeholder.com/128x128", class: "img-rounded") %>
@@ -31,4 +32,5 @@
       <% end %>
       <%= render partial: "shared/follow", locals: {user: user} %>
   </div>
+  <% end %>
 <% end %>
