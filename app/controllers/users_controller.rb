@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update]
+    before_action :set_user, only: [:show, :edit, :update, :friend_list]
 def index
 @users = User.all
 end
@@ -9,6 +9,7 @@ def show
 @favorited_restaurants = @user.favorited_restaurants
 @followings = @user.followings
 @followers = @user.followers
+@friends = @user.friends
 end
 
 def edit
@@ -19,10 +20,17 @@ def update
   redirect_to user_path(@user)
 end
 
+
+  def friend_list
+    @friends = @user.all_friends
+
+  end
+
+
 private
 
 def set_user
-  @user = User.find(params[:id])
+@user = User.find(params[:id])
 end
 
 def user_params
